@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>The Hull - Beta</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+		<script type="text/javascript" src="scripts/three.min.js"></script>
+		<script type="text/javascript" src="scripts/TrackballControls.js"></script>
+		<script type="text/javascript" src="scripts/Detector.js"></script>
+		<script type="text/javascript" src="scripts/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="scripts/jquery.json-2.2.js"></script>
+		<script type="text/javascript" src="scripts/dat.gui.js"></script>
+		<script type="text/javascript" src="main.js"></script>
+		<script type="text/javascript" src="chull.js"></script>
+		<script type="text/javascript" src="controller.js"></script>
+	</head>
+		
+	<body>
+		<style type="text/css">
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			
+			body {
+				color: #fff;
+				font-family:Monospace;
+				font-size:13px;
+				text-align:center;
+
+				background-color: #050505;
+				margin: 0px;
+				overflow: hidden;
+			}
+			
+			#title	{
+				position: absolute;
+				left: 0;
+				top: 0;
+			}
+			
+			h1 {
+				font-weight: normal;
+				text-shadow: 1px 1px 1px #fff;
+				margin: 0 auto;
+				width: 80%;
+			}
+			
+			a {
+				color: #ff00ff;
+			}
+			#info {
+				position: absolute;
+				top: 0px; width: 100%;
+				padding: 5px;
+			}
+			#insructions {
+				margin: auto;
+				position: relative;
+				background: black;
+				width: 540px;
+				padding: 5px;
+				opacity: .6;
+			}
+		</style>
+		<div id="info">
+            <div id="insructions">
+			<a href="http://threejs.org" target="_blank">three.js</a> - Convex Hull of random Points in 3D space<br />
+            <span id="counts">For more information please visit: <a href="http://threejs.org" target="_blank">wiki</a></span><br />
+			<b>BETA</b>
+            </div>
+		</div>
+	</body>
+</html>
