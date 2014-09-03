@@ -28,23 +28,14 @@ public class Hull extends HttpServlet{
 	}
 	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
-		double x, y, z;
-		/* try {
-			// while(request.getParameter("coordinates[0][particleCount]") == null)
-			// {}
-			int num = Integer.parseInt(request.getParameter("coordinates[0][particleCount]"));
-		} catch(Exception e) {
-			System.out.println("Error here");
-		} */
-			points = new Point3d[500];
-			for(int i=0; i<500; i++)
-			{
-				x = Double.parseDouble(request.getParameter("coordinates[" + i + "][x]"));
-				y = Double.parseDouble(request.getParameter("coordinates[" + i + "][y]"));
-				z = Double.parseDouble(request.getParameter("coordinates[" + i + "][z]"));
-				//System.out.println(x + " " + y + " " + z);
-				points[i] = new Point3d( x, y, z );
-			}
+		points = new Point3d[500];
+		for(int i=0; i<500; i++)
+		{
+			x = Double.parseDouble(request.getParameter("coordinates[" + i + "][x]"));
+			y = Double.parseDouble(request.getParameter("coordinates[" + i + "][y]"));
+			z = Double.parseDouble(request.getParameter("coordinates[" + i + "][z]"));
+			points[i] = new Point3d( x, y, z );
+		}
 		
 		QuickHull3D hull = new QuickHull3D( );
 		hull.build( points );
@@ -63,7 +54,6 @@ public class Hull extends HttpServlet{
 			coordinate.put( "x", vertices[i].x );
 			coordinate.put( "y", vertices[i].y );
 			coordinate.put( "z", vertices[i].z );
-			//System.out.println(vertices[i].x + " " + vertices[i].y + " " + vertices[i].z);
 			coordinates.add( coordinate );
 		}
 		
@@ -99,12 +89,8 @@ public class Hull extends HttpServlet{
 		
 		response.setCharacterEncoding( "UTF-8" );
 		response.setContentType( "application/json" );
-		//try{
-			PrintWriter out = response.getWriter( );
-			out.write( json.toString( ) );
-			out.close();
-		//}catch(IOException e){
-		//		e.printStackTrace();
-		//}
+		PrintWriter out = response.getWriter( );
+		out.write( json.toString( ) );
+		out.close();
 	}
 }
